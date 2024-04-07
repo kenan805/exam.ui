@@ -1,0 +1,37 @@
+<div class="container my-5">
+  <h1 class="mb-3">Add New Lesson</h1>
+
+  <div class="row">
+    <div class="col-6">
+      <form #form = "ngForm" (ngSubmit)="addLesson()">
+        <div class="mb-3">
+          <label for="code" class="form-label">Code</label>
+          <input type="text" class="form-control" id="code"
+          name="code" [(ngModel)]="addLessonRequest.code">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name"
+          name="name" [(ngModel)]="addLessonRequest.name">
+        </div>
+        <div class="mb-3">
+          <label for="class" class="form-label">Class</label>
+          <input type="text" class="form-control" id="class"
+          name="class" [(ngModel)]="addLessonRequest.class">
+        </div>
+        <div class="mb-3">
+          <label for="teacherName" class="form-label">Teacher name</label>
+          <input type="text" class="form-control" id="teacherName"
+          name="teacherName" [(ngModel)]="addLessonRequest.teacherName">
+        </div>
+        <div class="mb-3">
+          <label for="teacherSurname" class="form-label">Teacher surname</label>
+          <input type="text" class="form-control" id="teacherSurname"
+          name="teacherSurname" [(ngModel)]="addLessonRequest.teacherSurname">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

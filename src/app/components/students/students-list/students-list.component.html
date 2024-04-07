@@ -1,0 +1,48 @@
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Students</h1>
+    <button type="button" class="btn btn-primary" routerLink="add">Add Student</button>
+  </div>
+
+  <table class="table" *ngIf="students && students.length > 0">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Class</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.no }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.surname }}</td>
+        <td>{{ student.class }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-container">
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-end">
+        <li class="page-item" [class.disabled]="!hasPreviousPage">
+          <a class="page-link" href="#" aria-label="Previous" [routerLink]="['/students/page', currentPageNumber - 1]">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let i of [].constructor(totalPages); let pageNumber = index" [class.active]="currentPageNumber === pageNumber + 1">
+          <a class="page-link" [routerLink]="['/students/page', pageNumber + 1]">{{ pageNumber + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="!hasNextPage">
+          <a class="page-link" href="#" aria-label="Next" [routerLink]="['/students/page', currentPageNumber + 1]">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <p *ngIf="!students || students.length <= 0">No students found</p>
+</div>
